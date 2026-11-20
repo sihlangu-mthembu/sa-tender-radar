@@ -1,0 +1,75 @@
+{
+  "_about": "SA Tender Radar taxonomy. Used by the n8n workflow to classify every eTenders OCDS release. Edit freely: the AI step and the rules both read from this file.",
+  "version": "1.0",
+
+  "provinces": [
+    "Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo",
+    "Mpumalanga", "North West", "Northern Cape", "Western Cape", "National / Multiple"
+  ],
+
+  "buyer_types": {
+    "National department": ["department of", "national treasury", "dpwi", "sars", "statistics south africa"],
+    "Provincial department": ["provincial", "gauteng department", "western cape government", "kzn department", "eastern cape department"],
+    "Municipality / Metro": ["municipality", "metropolitan", "city of", "district municipality", "local municipality"],
+    "State-owned company": ["eskom", "transnet", "sanral", "prasa", "denel", "saa", "acsa", "rand water", "telkom", "sabc", "post office"],
+    "Public entity / Agency": ["agency", "authority", "board", "council", "fund", "institute", "commission", "seta"],
+    "University / TVET": ["university", "tvet", "college", "technikon"],
+    "Health facility": ["hospital", "clinic", "health"]
+  },
+
+  "procurement_categories": ["Goods", "Services", "Works (construction)", "Consultancy / Professional services", "Disposal / Lease"],
+
+  "industries": {
+    "Construction & Civil Works": ["construction", "civil", "road", "building", "renovation", "paving", "bridge", "pipeline", "sanitation", "reservoir"],
+    "ICT & Software": ["ict", "software", "network", "server", "licen", "data centre", "it services", "cyber", "laptop", "computer", "website", "digital"],
+    "Security Services": ["security services", "guarding", "cctv", "access control", "armed response"],
+    "Cleaning & Facilities Management": ["cleaning", "hygiene", "pest control", "facilities management", "garden", "waste removal"],
+    "Medical & Pharmaceutical": ["medical", "pharmaceutical", "medicine", "surgical", "laboratory", "dental", "ppe"],
+    "Consulting & Advisory": ["consult", "advisory", "feasibility", "strategy", "audit", "valuation", "research", "evaluation study"],
+    "Engineering & Electrical": ["electrical", "mechanical", "engineering", "substation", "transformer", "hvac", "generator", "solar"],
+    "Transport & Fleet": ["vehicle", "fleet", "transport", "bus", "logistics", "courier", "tyre"],
+    "Catering & Events": ["catering", "food", "events", "venue", "accommodation", "conference"],
+    "Training & Education": ["training", "skills development", "learnership", "workshop", "capacity building"],
+    "Printing, Stationery & Office": ["printing", "stationery", "office furniture", "toner", "branding"],
+    "Legal Services": ["legal", "attorney", "litigation", "panel of attorneys"],
+    "Financial Services": ["financial", "insurance", "banking", "debt collection", "actuarial", "accounting"],
+    "Energy & Water": ["energy", "water", "electricity", "borehole", "fuel", "diesel"],
+    "Other": []
+  },
+
+  "cidb": {
+    "_about": "CIDB grading applies to construction works. Grade 1 = smallest contracts, 9 = unlimited. Class of works codes: CE civil, GB general building, EE electrical (engineering), EB electrical (building), ME mechanical, SB specialist.",
+    "grades": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "classes": ["CE", "GB", "EE", "EB", "ME", "SB"],
+    "regex": "(?i)\\b([1-9])\\s*(CE|GB|EE|EB|ME|SB)\\b"
+  },
+
+  "requirements_flags": [
+    "B-BBEE level required",
+    "Local content / production requirement",
+    "CSD registration required",
+    "Tax compliance (SARS PIN) required",
+    "Compulsory briefing session",
+    "CIDB grading required",
+    "Professional registration (e.g. ECSA, SACPCMP)",
+    "Security clearance / PSIRA",
+    "Site visit required"
+  ],
+
+  "value_bands_zar": [
+    { "label": "Unknown", "min": null, "max": null },
+    { "label": "< R500k", "min": 0, "max": 500000 },
+    { "label": "R500k – R5m", "min": 500000, "max": 5000000 },
+    { "label": "R5m – R50m", "min": 5000000, "max": 50000000 },
+    { "label": "> R50m", "min": 50000000, "max": null }
+  ],
+
+  "urgency": [
+    { "label": "Closing within 3 days", "max_days": 3 },
+    { "label": "Closing within 7 days", "max_days": 7 },
+    { "label": "Closing within 14 days", "max_days": 14 },
+    { "label": "More than 14 days", "max_days": null }
+  ],
+
+  "fit_decision": ["GO", "MAYBE", "NO-GO"]
+}
