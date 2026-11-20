@@ -3,6 +3,11 @@
 
 Built on **Activepieces Cloud** (runs 24/7, no server) · TypeScript code step · built-in AI step · Gmail
 
+## ▶ Demo video (2 min, captioned, no sound)
+[![SA Tender Radar demo video](docs/demo-poster.jpg)](docs/demo.mp4)
+
+Click the image to play the video on GitHub, or [download it](https://github.com/sihlangu-mthembu/sa-tender-radar/raw/main/docs/demo.mp4). Every figure in it comes from a live run on 19 November 2026: 462 open tenders scanned, 15 shortlisted, and 2 GO / 6 MAYBE / 7 NO-GO emailed in about 1.5 minutes.
+
 ---
 
 ## The problem
@@ -17,7 +22,7 @@ Every weekday 07:00 (SAST)
    • Pulls all new tenders from the National Treasury eTenders OCDS API (day by day, paginated)
    • Retries flaky API pages with back-off and reports skipped pages instead of crashing
    • Normalises each tender and tags it with a taxonomy:
-       province (incl. 80+ city/municipality → province mappings), buyer type
+       province (incl. 70+ town, metro and abbreviation → province mappings), buyer type
        (municipality, SOE, national dept, TVET…), 14 industries, procurement category,
        CIDB grade, value band, closing-date urgency, requirement flags
        (B-BBEE, CSD, tax compliance, CIDB, PSIRA, compulsory briefing, site visit…)
@@ -66,7 +71,8 @@ Top matches included a Microsoft Dynamics licence renewal (National Youth Develo
 | `activepieces/build-digest.ts` | Code step that renders the HTML/text digest, with rules-based fallback |
 | `taxonomy.json` | The classification taxonomy (provinces, buyer types, industries, CIDB, flags) |
 | `code/normalize-and-classify.js` | Platform-neutral version of the classifier (e.g. for an n8n Code node) |
-| `LOOM-SCRIPT.md` | 2–3 minute demo video script |
+| `LOOM-SCRIPT.md` | Script for the demo video |
+| `docs/demo.mp4` | 2-minute captioned demo video |
 
 ## Ideas for v2
 - Store every tender in a table/sheet to build a searchable history and spot buyer trends
